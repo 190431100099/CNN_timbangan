@@ -1,0 +1,81 @@
+Mulai
+   |
+   v
+Memuat Model ('fruit_classifier_model_baru.h5')
+   |
+   v
+Inisialisasi GUI (Tkinter)
+   |
+   v
+Membuka Koneksi Serial (COM3)
+   |
+   v
+Membuka Kamera (cv2.VideoCapture)
+   |
+   v
+Cek apakah Kamera Terbuka:
+   |--- Tidak ---> Error: "Tidak dapat membuka webcam" ---> Selesai
+   |--- Ya ---> Lanjut ke langkah berikutnya
+   |
+   v
+Memulai fungsi video_feed()
+   |
+   v
+Loop (Selama GUI berjalan):
+   |
+   v
+Mengambil frame dari webcam (cap.read())
+   |
+   v
+Mengonversi frame ke RGB (cv2.cvtColor)
+   |
+   v
+Mengubah ukuran frame menjadi 1280x720
+   |
+   v
+Proses frame:
+   |
+   v
+Mengubah ukuran menjadi 100x100
+   |
+   v
+Normalisasi frame (Pembagian dengan 255)
+   |
+   v
+Melakukan Prediksi (model.predict)
+   |
+   v
+Mendapatkan Kelas Prediksi dan Akurasi
+   |
+   v
+Menampilkan Kelas Prediksi di GUI (label.config)
+   |
+   v
+Menampilkan Akurasi di GUI (accuracy_label.config)
+   |
+   v
+Cek apakah sudah waktunya mengirim data ke Arduino:
+   |--- Ya ---> Kirim Kelas Prediksi ke Arduino melalui serial (serial_port.write)
+   |            Memperbarui waktu pengiriman terakhir (last_sent_time)
+   |--- Tidak ---> Lewati pengiriman data
+   |
+   v
+Mengubah frame menjadi ImageTk untuk Tkinter
+   |
+   v
+Memperbarui feed video di GUI (video_label.configure)
+   |
+   v
+Tunggu selama 10ms dan ulangi video_feed
+   |
+   v
+Akhir dari Loop (ketika GUI ditutup)
+   |
+   v
+Melepaskan Kamera (cap.release())
+   |
+   v
+Menutup Koneksi Serial (serial_port.close())
+   |
+   v
+Selesai
